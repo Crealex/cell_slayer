@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://fln61vappfn3"]
+
+[ext_resource type="Script" uid="uid://do43phc63kb14" path="res://scripts/enemi.gd" id="1_2tsnu"]
+[ext_resource type="Texture2D" uid="uid://c3n48w8aoaj2x" path="res://assets/characters.webp" id="2_3frmn"]
+[ext_resource type="Texture2D" uid="uid://c02whhmd1dcsi" path="res://assets/cells_touched.png" id="3_wfprl"]
+[ext_resource type="PackedScene" uid="uid://dcrj8jckmjeni" path="res://scenes/cytokine.tscn" id="4_3frmn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtlmh"]
+atlas = ExtResource("2_3frmn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3frmn"]
+atlas = ExtResource("3_wfprl")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfprl"]
+radius = 13.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtlmh"]
+radius = 29.0172
+
+[node name="enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_2tsnu")
+spritesheet = SubResource("AtlasTexture_wtlmh")
+spritetouch = SubResource("AtlasTexture_3frmn")
+cytokine = ExtResource("4_3frmn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = -0.785398
+
+[node name="CollisionPhisique" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wfprl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionProjectile" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wtlmh")

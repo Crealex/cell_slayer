@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://5f1y0ieh6e1o"]
+
+[ext_resource type="Texture2D" uid="uid://qi6nh6c2wrct" path="res://assets/tilsets3.png" id="1_paxxb"]
+[ext_resource type="Script" uid="uid://br8yautkcdqa4" path="res://scripts/map.gd" id="2_gldc4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gldc4"]
+texture = ExtResource("1_paxxb")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2klcf"]
+tile_size = Vector2i(48, 48)
+physics_layer_0/collision_layer = 8
+sources/0 = SubResource("TileSetAtlasSource_gldc4")
+
+[node name="Map" type="TileMap"]
+tile_set = SubResource("TileSet_2klcf")
+format = 2
+layer_0/tile_data = PackedInt32Array(131073, 0, 0)
+script = ExtResource("2_gldc4")

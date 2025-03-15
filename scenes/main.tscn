@@ -1,0 +1,18 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq6bhq1uc6esl"]
+
+[ext_resource type="Script" uid="uid://dapyh4b2140hw" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://cg0g48hfsusd1" path="res://scenes/player.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://fln61vappfn3" path="res://scenes/enemi.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://5f1y0ieh6e1o" path="res://scenes/map.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://vxtqlh2msoit" path="res://scenes/menu_help.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d2h8escgvyv3n" path="res://scenes/menu_v_2.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://8xmjba8387kh" path="res://scenes/life_bar.tscn" id="7_o6xl0"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_o5qli")
+player_scene = ExtResource("2_sugp2")
+enemy_scene = ExtResource("3_jyhfs")
+map_scene = ExtResource("4_jyhfs")
+menu_scene = ExtResource("5_tefeu")
+menu_Help = ExtResource("5_tbgi4")
+hud_scene = ExtResource("7_o6xl0")

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2h8escgvyv3n"]
+
+[ext_resource type="Script" uid="uid://hi8rbs5buf1d" path="res://scripts/menu_v_2.gd" id="1_0ux1x"]
+[ext_resource type="Texture2D" uid="uid://ct5bbw27w5trv" path="res://assets/1.png" id="2_gtdae"]
+[ext_resource type="Texture2D" uid="uid://bfywfqjy4w3sb" path="res://assets/start.png" id="3_0o0v4"]
+[ext_resource type="Texture2D" uid="uid://dm5a6sab15hiu" path="res://assets/help.png" id="4_5p1o4"]
+[ext_resource type="Texture2D" uid="uid://d0akfjedtcruh" path="res://assets/5.png" id="5_vdke6"]
+
+[node name="menu_v2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0ux1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D"]
+texture_filter = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 3.5
+offset_right = 960.0
+offset_bottom = 643.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_gtdae")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+offset_left = 452.0
+offset_top = 205.0
+offset_right = 652.0
+offset_bottom = 663.0
+theme_override_constants/separation = -50
+
+[node name="start" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_0o0v4")
+
+[node name="help" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_5p1o4")
+
+[node name="quit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("5_vdke6")
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

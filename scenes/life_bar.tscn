@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://8xmjba8387kh"]
+
+[ext_resource type="Script" uid="uid://cjdcwedgkwk60" path="res://scripts/life_bar.gd" id="1_thdg0"]
+[ext_resource type="Texture2D" uid="uid://g0ktap3vaul5" path="res://assets/life_bar_backgroundv2.webp" id="2_0v1gc"]
+[ext_resource type="Shader" path="/home/alexandre/Documents/godot_project/Medishot/medishot4.4/life_bar.gdshader" id="2_stdfl"]
+[ext_resource type="Texture2D" uid="uid://bk2ly7qkynr7c" path="res://assets/life_bar_progressv2.webp" id="3_stdfl"]
+[ext_resource type="Texture2D" uid="uid://tekh6ucgbpy6" path="res://assets/life_bar_bout.webp" id="4_pc33e"]
+[ext_resource type="FontFile" uid="uid://d1bf6b6ryncv5" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_pc33e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jimib"]
+shader = ExtResource("2_stdfl")
+shader_parameter/base_color = Vector4(0.141176, 0.082353, 0.152941, 1)
+
+[node name="Hud" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_thdg0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jimib")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 87.0
+grow_horizontal = 2
+color = Color(0.141176, 0.0823529, 0.152941, 1)
+
+[node name="LifeBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+offset_top = 10.0
+offset_right = 320.0
+offset_bottom = 26.0
+step = 0.1
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_0v1gc")
+texture_progress = ExtResource("3_stdfl")
+
+[node name="LifeBarTip" type="Sprite2D" parent="LifeBar"]
+position = Vector2(325, 8)
+texture = ExtResource("4_pc33e")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_right = -30.0
+offset_bottom = 37.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("6_pc33e")
+theme_override_font_sizes/font_size = 30
+text = "Score : 0"
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_pc33e")
+theme_override_font_sizes/font_size = 30
+text = "00:00
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -14.0
+offset_right = 35.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_pc33e")
+theme_override_font_sizes/font_size = 70
+text = "Wave 1"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcrj8jckmjeni"]
+
+[ext_resource type="Texture2D" uid="uid://b6p2kjcvh7wos" path="res://assets/Cytokine.webp" id="1_7po68"]
+[ext_resource type="Script" uid="uid://csl2v50g8fl0n" path="res://scripts/cytokine.gd" id="1_y1ktu"]
+[ext_resource type="Texture2D" uid="uid://xsx658p3d2sw" path="res://assets/Cytokine_clign.webp" id="2_y1ktu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1ktu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7po68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y1ktu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jepv6"]
+radius = 5.0
+height = 14.0
+
+[node name="Cytokine" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_y1ktu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_y1ktu")
+frame_progress = 0.555844
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jepv6")

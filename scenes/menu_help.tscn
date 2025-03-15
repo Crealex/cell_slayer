@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://vxtqlh2msoit"]
+
+[ext_resource type="Script" uid="uid://cu5d3bspysmfr" path="res://scripts/menu_help.gd" id="1_7hy6n"]
+[ext_resource type="Texture2D" uid="uid://bw2ugcieeicr6" path="res://assets/3.png" id="1_q6kn3"]
+
+[node name="menu_help" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7hy6n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.108
+anchor_bottom = 2.524
+offset_right = 1025.68
+offset_bottom = 542.04
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1158, 638)
+
+[node name="button_help" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_q6kn3")
+
+[connection signal="pressed" from="MarginContainer/button_help" to="." method="_on_button_help_pressed"]
