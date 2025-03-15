@@ -1,13 +1,18 @@
 extends Area2D
 
 @export var speed: float = 0.5
+@onready var timer_war = $WarningTimer
+@onready var timer_depop = $DepopTimer 
+
 var origin_scale
 
 func _ready() -> void:
 	add_to_group("cytokine")
 	body_entered.connect(_on_body_entered)
 	origin_scale = scale
-	$AnimatedSprite2D.play()
+	$AnimatedSprite2D.play("default")
+	timer_war.start()
+	timer_depop.start()
 	pulse()
 
 func _physics_process(delta: float) -> void:
@@ -26,4 +31,12 @@ func pulse() -> void:
 	
 func _on_body_entered(body):
 	body.add_cytokine(1)
+	queue_free()
+
+
+func _on_warning_timer_timeout() -> void:
+	$AnimatedSprite2D.play("warning")
+
+
+func _on_depop_timer_timeout() -> void:
 	queue_free()

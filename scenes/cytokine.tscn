@@ -16,6 +16,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7po68")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"warning",
+"speed": 2.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jepv6"]
@@ -29,8 +40,20 @@ script = ExtResource("1_y1ktu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y1ktu")
-frame_progress = 0.555844
+animation = &"warning"
+frame_progress = 0.539934
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jepv6")
+
+[node name="WarningTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="DepopTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
+[connection signal="timeout" from="DepopTimer" to="." method="_on_depop_timer_timeout"]
