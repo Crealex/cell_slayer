@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://dq6bhq1uc6esl"]
 
-[ext_resource type="Script" uid="uid://cqw57i2wkd8ix" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://c5v1vvngc0h56" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://cg0g48hfsusd1" path="res://scenes/player.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://fln61vappfn3" path="res://scenes/enemi.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://duas23n2buf1r" path="res://scenes/map_v2.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://vxtqlh2msoit" path="res://scenes/menu_help.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d2h8escgvyv3n" path="res://scenes/menu_v_2.tscn" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://8xmjba8387kh" path="res://scenes/life_bar.tscn" id="7_o6xl0"]
-[ext_resource type="AudioStream" uid="uid://7d0n0ga7hh20" path="res://assets/son/button.wav" id="8_tipki"]
-[ext_resource type="AudioStream" uid="uid://cu8c82fwhk50l" path="res://assets/sound/background_music.wav" id="9_85g3d"]
+[ext_resource type="AudioStream" uid="uid://cfwj0ra2hchc6" path="res://assets/son/button.wav" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://bra27pgtdwyuw" path="res://assets/sound/background_music.wav" id="9_85g3d"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_85g3d"]
 
