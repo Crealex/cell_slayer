@@ -15,6 +15,8 @@ func _ready() -> void:
 	show_score(score)
 	$Timer.start()
 
+	$ColorRect.hide()
+
 func _process(delta):
 	# Supposons que health_bar.value varie entre health_bar.min_value et health_bar.max_value
 	if life_bar.value < life_bar.max_value:
