@@ -30,7 +30,7 @@ region = Rect2(32, 0, 16, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 
 [node name="player" type="CharacterBody2D"]
-collision_mask = 8
+collision_mask = 12
 script = ExtResource("1_qhqgy")
 speed = 400.0
 bullet_scene = ExtResource("2_dqkch")

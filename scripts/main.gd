@@ -26,13 +26,12 @@ func _ready():
 
 	map = map_scene.instantiate()
 	add_child(map)
-	map.init_map()
 	create_timer(1.0)
 
 func start_game():
 	map = map_scene.instantiate()
 	add_child(map)
-	map.init_map()
+	map.show()
 	
 	if hud_scene:
 		hud = hud_scene.instantiate()
@@ -83,7 +82,7 @@ func play_button():
 	sound_player.stream = $Son_bouton.stream
 	sound_player.bus = "Pop"
 	
-	get_tree().root.add_child(sound_player)  # ✅ Permet au son de continuer même si l’objet actuel est supprimé
+	get_tree().root.add_child(sound_player)
 	sound_player.play()
 	
 	sound_player.finished.connect(func(): sound_player.queue_free())

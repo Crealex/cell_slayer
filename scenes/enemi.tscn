@@ -20,7 +20,7 @@ radius = 29.0172
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("1_2tsnu")
 spritesheet = SubResource("AtlasTexture_wtlmh")
 spritetouch = SubResource("AtlasTexture_3frmn")
