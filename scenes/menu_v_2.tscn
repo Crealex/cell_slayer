@@ -1,17 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2h8escgvyv3n"]
+[gd_scene load_steps=13 format=3 uid="uid://d2h8escgvyv3n"]
 
-[ext_resource type="Script" uid="uid://hi8rbs5buf1d" path="res://scripts/menu_v_2.gd" id="1_0ux1x"]
-[ext_resource type="Texture2D" uid="uid://ct5bbw27w5trv" path="res://assets/1.png" id="2_gtdae"]
-[ext_resource type="Texture2D" uid="uid://bfywfqjy4w3sb" path="res://assets/start.png" id="3_0o0v4"]
-[ext_resource type="Texture2D" uid="uid://dm5a6sab15hiu" path="res://assets/help.png" id="4_5p1o4"]
-[ext_resource type="Texture2D" uid="uid://d0akfjedtcruh" path="res://assets/5.png" id="5_vdke6"]
+[ext_resource type="Script" uid="uid://7sjprh8ccp33" path="res://scripts/menu_v_2.gd" id="1_0ux1x"]
+[ext_resource type="PackedScene" uid="uid://vxtqlh2msoit" path="res://scenes/menu_help.tscn" id="2_1gsch"]
+[ext_resource type="Texture2D" uid="uid://dv3w21hjlsfck" path="res://assets/1.png" id="2_gtdae"]
+[ext_resource type="Texture2D" uid="uid://d3p5r1buymmy1" path="res://assets/start.png" id="3_0o0v4"]
+[ext_resource type="Texture2D" uid="uid://n6oeb1xijf86" path="res://assets/help.png" id="4_5p1o4"]
+[ext_resource type="Texture2D" uid="uid://c3us7n5iu42ru" path="res://assets/texture_button/s_b.webp" id="4_vdke6"]
+[ext_resource type="Texture2D" uid="uid://dwbq86xpklyq4" path="res://assets/texture_button/s_w.webp" id="5_5kfb0"]
+[ext_resource type="Texture2D" uid="uid://bjupvk0ivmykn" path="res://assets/5.png" id="5_vdke6"]
+[ext_resource type="Texture2D" uid="uid://b6c36wkkkw41n" path="res://assets/texture_button/h_b.webp" id="7_nbusu"]
+[ext_resource type="Texture2D" uid="uid://din8p0pux8eok" path="res://assets/texture_button/h_w.webp" id="8_1gsch"]
+[ext_resource type="Texture2D" uid="uid://wuxlruqpsagi" path="res://assets/texture_button/q_b.webp" id="10_2seox"]
+[ext_resource type="Texture2D" uid="uid://y6x17he8x5pn" path="res://assets/texture_button/q_w.webp" id="11_x0oid"]
 
 [node name="menu_v2" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_0ux1x")
+help_menu = ExtResource("2_1gsch")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -44,15 +53,21 @@ theme_override_constants/separation = -50
 [node name="start" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_0o0v4")
+texture_pressed = ExtResource("4_vdke6")
+texture_hover = ExtResource("5_5kfb0")
 
 [node name="help" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_5p1o4")
+texture_pressed = ExtResource("7_nbusu")
+texture_hover = ExtResource("8_1gsch")
 
 [node name="quit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("5_vdke6")
+texture_pressed = ExtResource("10_2seox")
+texture_hover = ExtResource("11_x0oid")
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/help" to="." method="_on_help_pressed"]

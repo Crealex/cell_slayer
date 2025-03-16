@@ -37,6 +37,5 @@ func _on_body_entered(body):
 func _on_warning_timer_timeout() -> void:
 	$AnimatedSprite2D.play("warning")
 
-
 func _on_depop_timer_timeout() -> void:
 	queue_free()

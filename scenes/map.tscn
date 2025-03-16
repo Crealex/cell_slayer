@@ -1,20 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://5f1y0ieh6e1o"]
 
-[ext_resource type="Texture2D" uid="uid://qi6nh6c2wrct" path="res://assets/tilsets3.png" id="1_paxxb"]
-[ext_resource type="Script" uid="uid://br8yautkcdqa4" path="res://scripts/map.gd" id="2_gldc4"]
+[ext_resource type="Texture2D" uid="uid://b6jecbnybggow" path="res://assets/tilsets3.png" id="1_paxxb"]
+[ext_resource type="Script" uid="uid://dum1vxdwu7c4f" path="res://scripts/map.gd" id="2_gldc4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gldc4"]
 texture = ExtResource("1_paxxb")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 4.8, 4.8, 4.8, 4.79803, 24, -24, 24)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 4.8, -24, 4.79803, 24, -24, 24)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 4.8, -24, 4.79921, -4.79796, 24, -4.8, 24, 24, -24, 24)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 4.8, -24, 4.8)
 1:1/0 = 0
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -4.8, 24, -4.8, 24, 24, -24, 24)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -4.8, 24, -4.8, 5.3625, -24, 4.8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.8, -24, 24, -24, 24, 24, -4.8, 24)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -4.8, -4.8, -4.8, -4.8, -24, 24, -24, 24, 24, -24, 24)
 
 [sub_resource type="TileSet" id="TileSet_2klcf"]
 tile_size = Vector2i(48, 48)

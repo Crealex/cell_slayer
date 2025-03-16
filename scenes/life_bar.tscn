@@ -1,15 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://8xmjba8387kh"]
+[gd_scene load_steps=7 format=3 uid="uid://8xmjba8387kh"]
 
-[ext_resource type="Script" uid="uid://cjdcwedgkwk60" path="res://scripts/life_bar.gd" id="1_thdg0"]
-[ext_resource type="Texture2D" uid="uid://g0ktap3vaul5" path="res://assets/life_bar_backgroundv2.webp" id="2_0v1gc"]
-[ext_resource type="Shader" path="/home/alexandre/Documents/godot_project/Medishot/medishot4.4/life_bar.gdshader" id="2_stdfl"]
-[ext_resource type="Texture2D" uid="uid://bk2ly7qkynr7c" path="res://assets/life_bar_progressv2.webp" id="3_stdfl"]
-[ext_resource type="Texture2D" uid="uid://tekh6ucgbpy6" path="res://assets/life_bar_bout.webp" id="4_pc33e"]
-[ext_resource type="FontFile" uid="uid://d1bf6b6ryncv5" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_pc33e"]
+[ext_resource type="Script" uid="uid://cdmbbarg11q80" path="res://scripts/life_bar.gd" id="1_thdg0"]
+[ext_resource type="Texture2D" uid="uid://cai00r42r8ewx" path="res://assets/life_bar_backgroundv2.webp" id="2_0v1gc"]
+[ext_resource type="Texture2D" uid="uid://bbo0j2ui52xx" path="res://assets/life_bar_progressv2.webp" id="3_stdfl"]
+[ext_resource type="Texture2D" uid="uid://bbhcxyyouefcj" path="res://assets/life_bar_bout.webp" id="4_pc33e"]
+[ext_resource type="FontFile" uid="uid://drh84c65c6uxp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_pc33e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jimib"]
-shader = ExtResource("2_stdfl")
-shader_parameter/base_color = Vector4(0.141176, 0.082353, 0.152941, 1)
 
 [node name="Hud" type="Control"]
 z_index = 1

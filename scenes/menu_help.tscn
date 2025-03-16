@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vxtqlh2msoit"]
+[gd_scene load_steps=4 format=3 uid="uid://vxtqlh2msoit"]
 
-[ext_resource type="Script" uid="uid://cu5d3bspysmfr" path="res://scripts/menu_help.gd" id="1_7hy6n"]
-[ext_resource type="Texture2D" uid="uid://bw2ugcieeicr6" path="res://assets/3.png" id="1_q6kn3"]
+[ext_resource type="Script" uid="uid://b61qlrs33hpnj" path="res://scripts/menu_help.gd" id="1_7hy6n"]
+[ext_resource type="Texture2D" uid="uid://ylpkljld4gy3" path="res://assets/3.png" id="1_q6kn3"]
+[ext_resource type="AudioStream" uid="uid://7d0n0ga7hh20" path="res://assets/son/button.wav" id="3_kmgsd"]
 
 [node name="menu_help" type="Control"]
 layout_mode = 3
@@ -25,5 +26,8 @@ pivot_offset = Vector2(1158, 638)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("1_q6kn3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kmgsd")
 
 [connection signal="pressed" from="MarginContainer/button_help" to="." method="_on_button_help_pressed"]

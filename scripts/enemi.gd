@@ -70,9 +70,20 @@ func split():
 			var new_cytokine = cytokine.instantiate()
 			get_parent().call_deferred("add_child", new_cytokine)
 			new_cytokine.global_position = global_position + Vector2(randf_range(-10, 10), randf_range(-10, 10))
-			
+	
+	sound()
+	
+func sound():
+	var sound_player = AudioStreamPlayer.new()  # Crée un nouveau lecteur audio
+	sound_player.stream = $AudioStreamPlayer.stream  # Associe le son
+	add_child(sound_player)  # Ajoute le lecteur audio à la scène
+	sound_player.bus = "Pop"
+	sound_player.play()  # Joue le son
+	
+	# Supprime le son après lecture
+	sound_player.finished.connect(func(): sound_player.queue_free())
 	queue_free()  # Supprime cet ennemi après division
-
+	
 func _on_area_entered(area):
 	if area.is_in_group("bullets"):
 		if life > 0:

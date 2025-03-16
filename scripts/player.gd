@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @export var texture_mov : Texture2D
 @export var texture_fire : Texture2D
+@export var texture_mov_red : Texture2D
+@export var texture_fire_red : Texture2D
 @export var texture_arrow: Texture2D
 var hud
 var cytokine
@@ -16,10 +18,12 @@ var direction
 var arrow_position
 @export var speed_fire : float = 0.1
 var free_fire = true
+var current_texture :Texture2D
 
 func _ready():
 	add_to_group("player")
 	$Sprite2D.texture = texture_mov
+	current_texture = texture_mov
 	hud = get_tree().get_first_node_in_group("hud")
 	if not hud:
 		print("NOT")
@@ -43,12 +47,17 @@ func _process(delta):
 
 	if Input.is_action_pressed("tirer"):
 		$Sprite2D.texture = texture_fire
-		create_timer()
+		current_texture = texture_fire
+		#create_timer()
 		if free_fire:
 			free_fire = false
 			shoot()
 			create_timer3()
+	if Input.is_action_just_released("tirer"):
+		$Sprite2D.texture = texture_mov
+		current_texture = texture_mov
 		
+			
 func move_player(delta):
 	var direction = Vector2.ZERO
 
@@ -68,6 +77,15 @@ func move_player(delta):
 	move_and_slide()
 
 func shoot():
+	var sound_player = AudioStreamPlayer.new()  # Crée un nouveau lecteur audio
+	sound_player.stream = $fire_sound.stream  # Associe le son
+	add_child(sound_player)  # Ajoute le lecteur audio à la scène
+	sound_player.bus = "fire"
+	sound_player.play()  # Joue le son
+	
+	# Supprime le son après lecture
+	sound_player.finished.connect(func(): sound_player.queue_free())
+
 	if bullet_scene:
 		var bullet = bullet_scene.instantiate()
 		get_parent().add_child(bullet)  # Ajoute la balle à la scène
@@ -75,19 +93,9 @@ func shoot():
 		var offset_distance = 10  # Distance de sortie de la balle
 		bullet.global_position = global_position + (bullet.direction * offset_distance) 
 
-func create_timer():
-	var timer = Timer.new()  # Crée un Timer
-	timer.wait_time = 0.5
-	timer.one_shot = true  # Pour qu'il ne se répète pas automatiquement
-	timer.timeout.connect(self.callback)  # Connecte la fonction à appeler après le temps écoulé
-	add_child(timer)  # Ajoute le Timer à la scène
-	timer.start()  # Démarre le Timer
-	
-func callback():
-	$Sprite2D.texture = texture_mov
-
 func take_damage(amonut):
 	life -= amonut
+	
 	hud.decrease_health(life)
 	print ("life = ", life)
 	if life <= 0:
@@ -96,12 +104,18 @@ func take_damage(amonut):
 		blink()
 	
 func blink():
-	$Sprite2D.texture = null
+	print($Sprite2D.texture)
+	if current_texture == texture_mov:
+		$Sprite2D.texture = texture_mov_red
+		current_texture = texture_mov_red
+	else:
+		$Sprite2D.texture = texture_fire_red
+		current_texture = texture_fire_red
 	create_timer2()
 	
 func create_timer2():
 	var timer = Timer.new()  # Crée un Timer
-	timer.wait_time = 0.1
+	timer.wait_time = 0.2
 	timer.one_shot = true  # Pour qu'il ne se répète pas automatiquement
 	timer.timeout.connect(self.callback1)  # Connecte la fonction à appeler après le temps écoulé
 	add_child(timer)  # Ajoute le Timer à la scène
@@ -109,6 +123,7 @@ func create_timer2():
 	
 func callback1():
 	$Sprite2D.texture = texture_mov
+	current_texture = texture_mov
 
 func add_cytokine(add : int):
 	cytokine += add

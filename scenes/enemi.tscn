@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://fln61vappfn3"]
+[gd_scene load_steps=10 format=3 uid="uid://fln61vappfn3"]
 
-[ext_resource type="Script" uid="uid://do43phc63kb14" path="res://scripts/enemi.gd" id="1_2tsnu"]
-[ext_resource type="Texture2D" uid="uid://c3n48w8aoaj2x" path="res://assets/characters.webp" id="2_3frmn"]
-[ext_resource type="Texture2D" uid="uid://c02whhmd1dcsi" path="res://assets/cells_touched.png" id="3_wfprl"]
+[ext_resource type="Script" uid="uid://d3q57acji5n51" path="res://scripts/enemi.gd" id="1_2tsnu"]
+[ext_resource type="Texture2D" uid="uid://tdxwnm4r5ceq" path="res://assets/characters.webp" id="2_3frmn"]
+[ext_resource type="Texture2D" uid="uid://drea5ltr8ry0g" path="res://assets/cells_touched.png" id="3_wfprl"]
 [ext_resource type="PackedScene" uid="uid://dcrj8jckmjeni" path="res://scenes/cytokine.tscn" id="4_3frmn"]
+[ext_resource type="AudioStream" uid="uid://da5n5bbp3jvgk" path="res://assets/son/split.wav" id="5_jc4w8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtlmh"]
 atlas = ExtResource("2_3frmn")
@@ -38,3 +39,7 @@ collision_mask = 5
 
 [node name="CollisionProjectile" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_wtlmh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jc4w8")
+bus = &"Pop"

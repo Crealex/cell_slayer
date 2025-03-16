@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dcrj8jckmjeni"]
 
-[ext_resource type="Texture2D" uid="uid://b6p2kjcvh7wos" path="res://assets/Cytokine.webp" id="1_7po68"]
-[ext_resource type="Script" uid="uid://csl2v50g8fl0n" path="res://scripts/cytokine.gd" id="1_y1ktu"]
-[ext_resource type="Texture2D" uid="uid://xsx658p3d2sw" path="res://assets/Cytokine_clign.webp" id="2_y1ktu"]
+[ext_resource type="Texture2D" uid="uid://cdio1fkxmi5sr" path="res://assets/Cytokine.webp" id="1_7po68"]
+[ext_resource type="Script" uid="uid://dndm0dns5m3fc" path="res://scripts/cytokine.gd" id="1_y1ktu"]
+[ext_resource type="Texture2D" uid="uid://dlhghasf8vobj" path="res://assets/Cytokine_clign.webp" id="2_y1ktu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y1ktu"]
 animations = [{
@@ -41,18 +41,16 @@ script = ExtResource("1_y1ktu")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y1ktu")
 animation = &"warning"
-frame_progress = 0.539934
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jepv6")
 
 [node name="WarningTimer" type="Timer" parent="."]
-wait_time = 5.0
 one_shot = true
 
 [node name="DepopTimer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]

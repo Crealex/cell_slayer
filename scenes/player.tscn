@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg0g48hfsusd1"]
+[gd_scene load_steps=13 format=3 uid="uid://cg0g48hfsusd1"]
 
-[ext_resource type="Script" uid="uid://bmw22d0fk6ujl" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://d1nxtym05tr8o" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://b1aouvqcr2ko0" path="res://scenes/projectile.tscn" id="2_dqkch"]
-[ext_resource type="Script" uid="uid://40cnqqjsneu" path="res://scenes/sprite_2d.gd" id="3_dqkch"]
-[ext_resource type="Texture2D" uid="uid://c3n48w8aoaj2x" path="res://assets/characters.webp" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://bg51d3v8ypeng" path="res://assets/player_more_assets.png" id="4_qlg0r"]
+[ext_resource type="Script" uid="uid://gq7bijxrxr28" path="res://scenes/sprite_2d.gd" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://tdxwnm4r5ceq" path="res://assets/characters.webp" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dluu80dfakkm3" path="res://assets/player_more_assets.png" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://dpxhh42hl0xfe" path="res://assets/son/shoot.wav" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("3_qlg0r")
@@ -13,6 +14,14 @@ region = Rect2(16, 32, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_qlg0r")
 region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(16, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(0, 0, 16, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("4_qlg0r")
@@ -27,6 +36,8 @@ speed = 400.0
 bullet_scene = ExtResource("2_dqkch")
 texture_mov = SubResource("AtlasTexture_tuyoq")
 texture_fire = SubResource("AtlasTexture_fjrip")
+texture_mov_red = SubResource("AtlasTexture_qlg0r")
+texture_fire_red = SubResource("AtlasTexture_ur7pv")
 texture_arrow = SubResource("AtlasTexture_smehm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -40,3 +51,7 @@ shape = SubResource("CircleShape2D_dqkch")
 [node name="Arrows" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
+
+[node name="fire_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tuyoq")
+bus = &"fire"
